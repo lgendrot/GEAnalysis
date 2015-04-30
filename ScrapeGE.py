@@ -10,13 +10,6 @@ import json
 
 
 
-
-
-
-
-
-
-
 url_names = []
 item_names = {}
 item_ids = [1944]
