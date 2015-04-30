@@ -6,6 +6,7 @@ import matplotlib.ticker as mticker
 import matplotlib.dates as mdates
 import urllib2
 import json
+import GrandExchange
 
 totalTimeStart = time.time()
 
@@ -72,8 +73,7 @@ def patternRecognition():
 		for i in range(0, 20):
 			sims.append(100.0 - abs(percentChange(eachPattern[i], patForRec[i])))
 
-		howSim = (sim1 + sim2 + sim3 + sim4 + sim5 + sim6 + sim7 + sim8 + sim9 + sim10+
-							sim11 + sim12 + sim13 + sim14 + sim15 + sim16 + sim17 + sim18 + sim19 + sim20) / 20.0
+		howSim = np.average(sims)
 
 		if howSim > 75:
 			patFound = 1
@@ -113,7 +113,7 @@ def getItemNames(item_numbers):
  
 		item_names[str(item_json['item']['id'])] = item_json['item']['name']
 
-item_ids = ['1944', '556', '314', '53', '453', '440', '227', '554', '561', '560', '563', '1777']
+item_ids = GrandExchange.item_ids
 
 
 
@@ -123,13 +123,14 @@ item_names = {}
 patternAr = []
 performanceAr = []
 patForRec = []
-positiveOutcomes = 0
+
 Positive = 0
 OutcomePrediction = 0
 
 getItemNames(item_ids)
 
 def Analyze():
+	positiveOutcomes = 0
 	patternStorage()
 	currentPattern()
 	patternRecognition()
@@ -143,8 +144,8 @@ def Analyze():
 	patternAr[:] = []
 	performanceAr[:] = []
 	patForRec[:] = []
-	positiveOutcomes[:] = []
-	Positive[:] = []
+	positiveOutcomes = 0
+	Positive = 0
 
 
 for item in item_names:

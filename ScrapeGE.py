@@ -12,7 +12,7 @@ import json
 
 url_names = []
 item_names = {}
-item_ids = [1944]
+item_ids = GrandExchange.item_ids
 
 def getItemNames(item_numbers):
 	#takes a list of Runescape Item IDs as integers or strings
