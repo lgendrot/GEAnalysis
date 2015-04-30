@@ -3,7 +3,7 @@ Scrapes and performs pattern matching on Runescape grand exchange data.
 
 VERY much still a work in progress. For now the workflow is as follows:
 
-## Setting up which items you want to scrape
+## Setting up which items to scrape
 
 Before doing anything, open up GrandExchange.py and input the ItemID numbers for the items you are interested in into `item_ids`
 
@@ -12,7 +12,7 @@ You can find itemIDs either on the Official Runescape Grand Exchange website by 
 
 ## Scrape GrandExchangeWatch
 
-Run Scrape.py in your terminal
+Run ScrapeGE.py in your terminal
 
 ```
 >>> python ScrapeGE.py
@@ -25,3 +25,11 @@ Note that in ScrapeGE.py there is a variable called `pagenums`, this determines 
 
 ## Perform Analysis
 
+Run GEAnalysis_Mass.py the same way as ScrapeGE.py
+```
+>>> python GEAnalysis_Mass.py
+```
+
+This will run the pattern-matching on all members of your `item_ids` list as long as the .csv files have been generated. 
+
+GEAnalysis_Mass.py will output another .csv file called ItemsOfInterest.csv, which will contain the items in your list which are projected to rise in price in the next 20 days. The Twitter bot uses this file to write its tweets.
