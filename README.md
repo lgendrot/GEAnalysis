@@ -1,4 +1,4 @@
-# GEWatch
+# GEAnalysis
 Scrapes and performs pattern matching on Runescape grand exchange data.
 
 VERY much still a work in progress. For now the workflow is as follows:
